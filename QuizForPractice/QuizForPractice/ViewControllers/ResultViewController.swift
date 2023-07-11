@@ -35,6 +35,7 @@ class ResultViewController : UIViewController {
             style: .plain,
             target: self, action: nil
         )
+        
         countQuestionsLabel.text = "\(countQuestions)"
         countCorrectAnswerLabel.text = "\(countCorrectAnswer)"
         calculateResult()

@@ -241,7 +241,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemGray5Color"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="tapOnAnswer1:" destination="3qi-vG-kOJ" eventType="touchUpInside" id="Rfo-27-Jy0"/>
+                                    <action selector="tapOnAnswer1Button:" destination="3qi-vG-kOJ" eventType="touchUpInside" id="Rfo-27-Jy0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zF-jh-4rn">
@@ -252,7 +252,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemGray5Color"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="tapOnAnswer2:" destination="3qi-vG-kOJ" eventType="touchUpInside" id="EvW-qG-0gO"/>
+                                    <action selector="tapOnAnswer2Button:" destination="3qi-vG-kOJ" eventType="touchUpInside" id="EvW-qG-0gO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELT-2c-vkq">
@@ -263,7 +263,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemGray5Color"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="tapOnAnswer3:" destination="3qi-vG-kOJ" eventType="touchUpInside" id="Z7w-xR-3V1"/>
+                                    <action selector="tapOnAnswer3Button:" destination="3qi-vG-kOJ" eventType="touchUpInside" id="Z7w-xR-3V1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YLp-qa-897">
@@ -274,7 +274,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemGray5Color"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="tapOnAnswer4:" destination="3qi-vG-kOJ" eventType="touchUpInside" id="8UK-1k-UIV"/>
+                                    <action selector="tapOnAnswer4Button:" destination="3qi-vG-kOJ" eventType="touchUpInside" id="8UK-1k-UIV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PA1-cW-IVl">
@@ -305,7 +305,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34o-Mt-v2P">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34o-Mt-v2P">
                                 <rect key="frame" x="94" y="741" width="210" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
@@ -332,18 +332,18 @@
                     </view>
                     <connections>
                         <outlet property="answer1Button" destination="KcQ-Xw-VlY" id="hTk-M6-WY8"/>
-                        <outlet property="answer1Label" destination="PA1-cW-IVl" id="0Nb-E3-ZFh"/>
+                        <outlet property="answer1ButtonLabel" destination="PA1-cW-IVl" id="0Nb-E3-ZFh"/>
                         <outlet property="answer2Button" destination="2zF-jh-4rn" id="4Pc-3k-C8O"/>
-                        <outlet property="answer2Label" destination="omW-kf-Jv8" id="sNh-Rw-b3W"/>
+                        <outlet property="answer2ButtonLabel" destination="omW-kf-Jv8" id="sNh-Rw-b3W"/>
                         <outlet property="answer3Button" destination="ELT-2c-vkq" id="eUM-03-2YU"/>
-                        <outlet property="answer3Label" destination="ALe-DQ-cz8" id="fHJ-KV-UYW"/>
+                        <outlet property="answer3ButtonLabel" destination="ALe-DQ-cz8" id="fHJ-KV-UYW"/>
                         <outlet property="answer4Button" destination="YLp-qa-897" id="yMv-0D-eiv"/>
-                        <outlet property="answer4Label" destination="dNu-gL-DSN" id="7UC-1v-g2G"/>
-                        <outlet property="backgorundImage2" destination="b0H-Bh-fD0" id="IQt-iU-yMr"/>
-                        <outlet property="backgroundImage1" destination="HPt-2p-SAG" id="OIj-28-KaT"/>
+                        <outlet property="answer4ButtonLabel" destination="dNu-gL-DSN" id="7UC-1v-g2G"/>
+                        <outlet property="backgorundBottomImage" destination="b0H-Bh-fD0" id="IQt-iU-yMr"/>
+                        <outlet property="backgroundTopImage" destination="HPt-2p-SAG" id="OIj-28-KaT"/>
+                        <outlet property="nameQuizLabel" destination="nn3-PR-1ZM" id="kjj-Hb-f1C"/>
                         <outlet property="numberOfQuestionLabel" destination="SPT-qg-mhH" id="rAP-6p-WLZ"/>
                         <outlet property="textQuestionsLabel" destination="k3a-b2-DsY" id="MfF-Fm-mNB"/>
-                        <outlet property="themQuizLabel" destination="nn3-PR-1ZM" id="kjj-Hb-f1C"/>
                         <outlet property="timerLabel" destination="34o-Mt-v2P" id="LLQ-6h-qJe"/>
                     </connections>
                 </viewController>

@@ -114,6 +114,7 @@ class SelectionGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         kinoQuizImage.layer.cornerRadius = 25
         spaceQuizImage.layer.cornerRadius = 25
         musicQuizImage.layer.cornerRadius = 25

@@ -109,6 +109,7 @@
 		14BDE8672A55A28400A0933A /* QuizForPractice */ = {
 			isa = PBXGroup;
 			children = (
+				14BDE8762A55A28500A0933A /* Info.plist */,
 				14FA88FE2A5DC68E007F5D8F /* Struct */,
 				14FA88FD2A5DC63B007F5D8F /* Storyboards */,
 				14FA88FC2A5DC5C8007F5D8F /* Resources */,
@@ -160,7 +161,6 @@
 			children = (
 				14BDE8982A55AB9200A0933A /* Фон для приложения.webp */,
 				14BDE8712A55A28500A0933A /* Assets.xcassets */,
-				14BDE8762A55A28500A0933A /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

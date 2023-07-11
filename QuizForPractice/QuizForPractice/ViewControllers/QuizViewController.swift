@@ -14,21 +14,21 @@ class QuizViewController: UIViewController {
     var numberOfQuestion: Int = 0
     var countCorectQuestion: Int = 0
     var timer = Timer()
-    var time = 30 {
+    var questionResponseTime = 30 {
         didSet {
-            timerLabel.text = "\(time)"
+            timerLabel.text = "\(questionResponseTime)"
         }
     }
     
-    @IBOutlet weak var themQuizLabel: UILabel!
-    @IBOutlet weak var backgroundImage1: UIImageView!
-    @IBOutlet weak var backgorundImage2: UIImageView!
+    @IBOutlet weak var nameQuizLabel: UILabel!
+    @IBOutlet weak var backgroundTopImage: UIImageView!
+    @IBOutlet weak var backgorundBottomImage: UIImageView!
     @IBOutlet weak var textQuestionsLabel: UILabel!
     @IBOutlet weak var numberOfQuestionLabel: UILabel!
-    @IBOutlet weak var answer1Label: UILabel!
-    @IBOutlet weak var answer2Label: UILabel!
-    @IBOutlet weak var answer3Label: UILabel!
-    @IBOutlet weak var answer4Label: UILabel!
+    @IBOutlet weak var answer1ButtonLabel: UILabel!
+    @IBOutlet weak var answer2ButtonLabel: UILabel!
+    @IBOutlet weak var answer3ButtonLabel: UILabel!
+    @IBOutlet weak var answer4ButtonLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var answer1Button: UIButton!
     @IBOutlet weak var answer2Button: UIButton!
@@ -38,26 +38,26 @@ class QuizViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backgorundImage2.layer.cornerRadius = 25
-        themQuizLabel.text = quizType.rawValue
+        backgorundBottomImage.layer.cornerRadius = 25
+        nameQuizLabel.text = quizType.rawValue
         numberOfQuestion = 0
         countCorectQuestion = 0
         
         switch quizType {
         case .filmQuiz:
-            backgroundImage1.backgroundColor = .systemRed
+            backgroundTopImage.backgroundColor = .systemRed
         case .spaceQuiz:
-            backgroundImage1.backgroundColor = .systemIndigo
+            backgroundTopImage.backgroundColor = .systemIndigo
         case .musicQuiz:
-            backgroundImage1.backgroundColor = .systemPink
+            backgroundTopImage.backgroundColor = .systemPink
         }
         
         numberOfQuestionLabel.text = "Вопрос №\(numberOfQuestion + 1)"
         textQuestionsLabel.text = questions[numberOfQuestion].question
-        answer1Label.text = questions[numberOfQuestion].answer1
-        answer2Label.text = questions[numberOfQuestion].answer2
-        answer3Label.text = questions[numberOfQuestion].answer3
-        answer4Label.text = questions[numberOfQuestion].answer4
+        answer1ButtonLabel.text = questions[numberOfQuestion].answer1
+        answer2ButtonLabel.text = questions[numberOfQuestion].answer2
+        answer3ButtonLabel.text = questions[numberOfQuestion].answer3
+        answer4ButtonLabel.text = questions[numberOfQuestion].answer4
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -65,49 +65,49 @@ class QuizViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timeСhange), userInfo: nil, repeats: true)
     }
     
-    @IBAction func tapOnAnswer1(_ sender: UIButton) {
+    @IBAction func tapOnAnswer1Button(_ sender: UIButton) {
         guard numberOfQuestion <= questions.count - 1 else {
             finishQuiz()
             return
         }
         
-        if (answer1Label.text == questions[numberOfQuestion].correctAnswer) {
+        if (answer1ButtonLabel.text == questions[numberOfQuestion].correctAnswer) {
             countCorectQuestion += 1
         }
         updateData()
     }
     
-    @IBAction func tapOnAnswer2(_ sender: UIButton) {
+    @IBAction func tapOnAnswer2Button(_ sender: UIButton) {
         guard numberOfQuestion <= questions.count - 1 else {
             finishQuiz()
             return
         }
         
-        if (answer2Label.text == questions[numberOfQuestion].correctAnswer) {
+        if (answer2ButtonLabel.text == questions[numberOfQuestion].correctAnswer) {
             countCorectQuestion += 1
         }
         updateData()
     }
     
-    @IBAction func tapOnAnswer3(_ sender: UIButton) {
+    @IBAction func tapOnAnswer3Button(_ sender: UIButton) {
         guard numberOfQuestion <= questions.count - 1 else {
             finishQuiz()
             return
         }
         
-        if (answer3Label.text == questions[numberOfQuestion].correctAnswer) {
+        if (answer3ButtonLabel.text == questions[numberOfQuestion].correctAnswer) {
             countCorectQuestion += 1
         }
         updateData()
     }
     
-    @IBAction func tapOnAnswer4(_ sender: UIButton) {
+    @IBAction func tapOnAnswer4Button(_ sender: UIButton) {
         guard numberOfQuestion <= questions.count - 1 else {
             finishQuiz()
             return
         }
         
-        if (answer4Label.text == questions[numberOfQuestion].correctAnswer) {
+        if (answer4ButtonLabel.text == questions[numberOfQuestion].correctAnswer) {
             countCorectQuestion += 1
         }
         updateData()
@@ -119,12 +119,12 @@ class QuizViewController: UIViewController {
         if (numberOfQuestion <= questions.count - 1) {
             numberOfQuestionLabel.text = "Вопрос №\(numberOfQuestion + 1)"
             textQuestionsLabel.text = questions[numberOfQuestion].question
-            answer1Label.text = questions[numberOfQuestion].answer1
-            answer2Label.text = questions[numberOfQuestion].answer2
-            answer3Label.text = questions[numberOfQuestion].answer3
-            answer4Label.text = questions[numberOfQuestion].answer4
+            answer1ButtonLabel.text = questions[numberOfQuestion].answer1
+            answer2ButtonLabel.text = questions[numberOfQuestion].answer2
+            answer3ButtonLabel.text = questions[numberOfQuestion].answer3
+            answer4ButtonLabel.text = questions[numberOfQuestion].answer4
             timer.invalidate()
-            time = 30
+            questionResponseTime = 30
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timeСhange),
                                          userInfo: nil, repeats: true)
         }
@@ -134,10 +134,10 @@ class QuizViewController: UIViewController {
     }
     
     @objc func timeСhange() {
-        time -= 1
+        questionResponseTime -= 1
         
-        if time == 0 {
-            time = 30
+        if questionResponseTime == 0 {
+            questionResponseTime = 30
             updateData()
             timer.invalidate()
             
@@ -152,8 +152,10 @@ class QuizViewController: UIViewController {
     
     func finishQuiz() {
         timer.invalidate()
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
               guard let resultViewController = storyboard.instantiateViewController(identifier: "ResultViewController") as? ResultViewController else { return }
+        
         resultViewController.quizName = quizType
         resultViewController.countQuestions = questions.count
         resultViewController.countCorrectAnswer = countCorectQuestion

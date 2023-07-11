@@ -7,12 +7,15 @@ class StartGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         backgroundImageView.layer.cornerRadius = 25
         backgroundImageView.backgroundColor = .systemMint
     }
     
     @IBAction func startGameButton(_ sender: Any) {
-        guard let vc = storyboard?.instantiateViewController(identifier: "SelectionGameViewController") else {return}
+        guard let vc = storyboard?.instantiateViewController(identifier: "SelectionGameViewController")
+            else {return}
+        
         navigationController?.pushViewController(vc, animated: true)
     }
 }
